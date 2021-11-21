@@ -3,8 +3,18 @@
 @description: Indexing all components
 --------------------------------------------------------------------------------- */
 
-import Example from "./Example";
+import WinScroll from "./WinScroll";
+import WindowResize from "./WindowResize";
+import Header from "./Header";
+import Footer from "./Footer";
+import HeroBanner from "./HeroBanner";
+import Testimonials from "./Testimonials";
 
 export {
-  Example
+  WinScroll,
+  WindowResize,
+  Header,
+  Footer,
+  HeroBanner,
+  Testimonials
 };

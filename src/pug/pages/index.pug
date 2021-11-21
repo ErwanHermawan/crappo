@@ -3,9 +3,11 @@ extends ../templates/default.pug
 //- Head
 block siteHeader
   -
-    siteTitle = 'Home';
+    navActive = "about";
+    siteTitle = 'About';
 
 //- Body
 block siteContent
-  //- Example
-  include home/example.pug
+
+  //- Why Crappo
+  include home/why-crappo.pug

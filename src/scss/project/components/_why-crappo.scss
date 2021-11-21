@@ -1,0 +1,19 @@
+/* ==========================================================================
+  Components Why Crappo
+  ========================================================================== */
+
+.why-crappo {
+  background-color: color(primary);
+  .container {
+    @include clearfix;
+  }
+  &__img {
+    float: left;
+  }
+  &__txt {
+    float: right;
+    @include medium {
+      margin-bottom: 24px;
+    }
+  }
+}

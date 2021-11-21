@@ -4,18 +4,20 @@
 
 // colors
 $colors: (
-  primary: #004e92,
-  secondary: #ffe1eb,
-  tertiary: #ffb27d,
-  black: #222,
+  primary: #0D0D2B,
+  secondary: #2B076E,
+  accent: #3671E9,
   grey: (
-    0: #888,
-    1: #fcfcfc
-  ),
+    1: #828282,
+    2: #bdbdbd,
+    3: #e0e0e0,
+    4: #f2f2f2
+    ),
+  black: #000,
   white: #fff,
   overlay: rgba(#000, 0.7),
-  shadow: rgba(#000, 0.1),
-  shadow-hover: rgba(#000, 0.2),
+  opacity: rgba(#9c69e2, 0.2),
+  gradient: linear-gradient(180deg, #F8F9FB 0%, #FAFBFF 100%),
   social-media: (
     facebook: #1877f2,
     twitter: #1da1f2,
@@ -23,5 +25,6 @@ $colors: (
     whatsapp: #25d366,
     youtube: #ff0000,
     spotify: #1db954,
+    linkedin: #0077b5,
   ),
 );

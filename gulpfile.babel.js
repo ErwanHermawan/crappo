@@ -95,9 +95,7 @@ const DEV_PATH = {
   fonts: `${SRC}/fonts/**/*`,
   others: {
     forbidden: `${SRC}/others/html/403.html`,
-    data: `${SRC}/others/data/*.json`,
-    customStyle: `${SRC}/others/css/*.css`,
-    customScript: `${SRC}/others/js/*.js`,
+    data: `${SRC}/others/data/*.json`
   }
 };
 
@@ -121,7 +119,6 @@ const BUILD_PATH = {
   readMe: `${BUILD}/assets/**/**/*.md`,
   others: {
     forbidden: [
-      `${BUILD}/assets`,
       `${BUILD}/assets/css`,
       `${BUILD}/assets/fonts`,
       `${BUILD}/assets/img`,
@@ -401,29 +398,9 @@ export const copyForbidden = () => {
     });
 };
 
-export const copyCustomStyle = () => {
-  return src(DEV_PATH.others.customStyle)
-    .pipe(dest(BUILD_PATH.style.dir))
-    .pipe(server.stream())
-    .on('end', () => {
-      console.log(c[COLORS.success].bold('--------- Custom Style finished copying! ---------'));
-    });
-};
-
-export const copyCustomScript = () => {
-  return src(DEV_PATH.others.customScript)
-    .pipe(dest(BUILD_PATH.script.dir))
-    .pipe(server.stream())
-    .on('end', () => {
-      console.log(c[COLORS.success].bold('--------- Custom Script finished copying! ---------'));
-    });
-};
-
 export const copyOthers = parallel(
   copyData,
-  copyForbidden,
-  copyCustomStyle,
-  copyCustomScript
+  copyForbidden
 );
 
 
@@ -460,6 +437,7 @@ export const devWatch = (done) => {
 --------------------------------------------------------------------------------- */
 exports.default = series(
   compressImage,
+  parallel(cleanMd, copyFonts),
   parallel(cleanMd, copyVendorJS, copyFonts),
   parallel(compileStyle, compileJS),
   copyOthers,
